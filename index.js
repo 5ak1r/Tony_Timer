@@ -33,9 +33,9 @@ client.on("messageCreate", (msg) => {
         );
     }
 
-    if (msg.content === "!busy" && start) {
+    if (msg.content === "!busy") {
         start = false;
-        msg.channel.send(`Tony is not getting on anymore :(`);
+        msg.channel.send(`Tony is not getting on today :(`);
     }
 });
 

@@ -7,4 +7,4 @@ It's very easy to use with only three commands as of right now. To use these com
 
 !hoppingon - start the timer
 !on - stop the timer and display the time taken in seconds
-!busy - stop the timer, he's not getting on tonight 😭
+!busy - stop the timer if there is one; display a message about him not getting on tonight 😭
