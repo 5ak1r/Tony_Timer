@@ -1,5 +1,6 @@
 const { Client, IntentsBitField } = require("discord.js");
 require("dotenv").config();
+const keepAlive = require("./server");
 
 const client = new Client({
     intents: [
@@ -16,7 +17,7 @@ client.on("ready", () => {
 });
 
 client.on("messageCreate", (msg) => {
-    if (msg.content === "!gettingon" && !start) {
+    if (msg.content === "!hoppingon" && !start) {
         msg.channel.send("Let's see how long it takes Tony this time...");
         startTime = new Date();
         start = true;
@@ -27,15 +28,17 @@ client.on("messageCreate", (msg) => {
         start = false;
 
         const elapsedTime = (endTime.getTime() - startTime.getTime()) / 1000;
-        msg.channel.send(`This time it took Tony: ${elapsedTime} seconds to get the **** on.`);
+        msg.channel.send(
+            `This time it took Tony ${elapsedTime} seconds to get the flip on.`,
+        );
     }
 
-    if(msg.content === "!busy" && start) {
+    if (msg.content === "!busy" && start) {
         start = false;
-        msg.channel.send(`Tony is not getting on anymore :(`)
+        msg.channel.send(`Tony is not getting on anymore :(`);
     }
 });
 
 client.on("error", console.error);
-
+keepAlive()
 client.login(process.env.TOKEN);
