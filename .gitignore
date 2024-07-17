@@ -1,0 +1,7 @@
+node_modules/
+.replit
+.env
+.vscode/
+*.code-workspace
+*.log
+.DS_Store
