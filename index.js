@@ -37,6 +37,10 @@ client.on("messageCreate", (msg) => {
         start = false;
         msg.channel.send(`Tony is not getting on today :(`);
     }
+
+    if (msg.content === "!isitcominghome") {
+        msg.channel.send(`¡Para nada!`)
+    }
 });
 
 client.on("error", console.error);

@@ -5,6 +5,18 @@ Welcome to Tony Timer! This is a fun little Discord bot I made for my friend Tob
 
 It's very easy to use with only three commands as of right now. To use these commands you simply write them into a channel on your Discord server that the bot can see.
 
+Current Supported Commands
+--------------------------
+
 !hoppingon - start the timer
 !on - stop the timer and display the time taken in seconds
 !busy - stop the timer if there is one; display a message about him not getting on tonight 😭
+!isitcominghome - humourous, responds in the language of the winning country
+
+CHANGELOG
+=========
+
+v1.1 - Added new command
+------------------------
+
+!isitcominghome - humourous, responds in the language of the winning country
