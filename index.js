@@ -5,6 +5,16 @@ const keepAlive = require("./server");
 const Database = require("@replit/database");
 const db = new Database();
 
+const commands = [
+    { command: '!hoppingon', description: 'Start the timer' },
+    { command: '!on', description: 'Stop the timer and display the time taken in seconds' },
+    { command: '!busy', description: 'Stop the timer if there is one; display a message about Tony not getting on tonight 😭' },
+    { command: '!isitcominghome', description: 'Humorous, responds in the language of the winning country' },
+    { command: '!average', description: 'Calculates and displays the average time it has taken for Tony to get online' },
+    { command: '!busycount', description: 'Displays the number of times the !busy command has been called' },
+    { command: '!help', description: 'Displays all current commands and what they do' }
+];
+
 db.empty()
 
 const client = new Client({
@@ -82,10 +92,30 @@ client.on("messageCreate", (msg) => {
             msg.channel.send(`It has taken Tony an average of ${average} seconds to get the flip on.`)
         })
     }
+
+    if (msg.content === "!busycount") {
+        read("busy").then(value => {
+            if(value === undefined) value = 0
+            if(value === 1) {
+                msg.channel.send(`Tony has been "busy" once.`)
+                return;
+            }
+            msg.channel.send(`Tony has been "busy" ${value} times.`)
+        })
+    }
     
     if (msg.content === "!isitcominghome") {
         msg.channel.send(`¡Para nada!`);
     }
+
+    if (msg.content === "!help") {
+        const helpMessage = commands.map(cmd => `**${cmd.command}** - ${cmd.description}`).join('\n');
+        msg.channel.send(`
+Available Commands:
+
+${helpMessage}`);
+    }
+    
 });
 
 client.on("error", console.error);
