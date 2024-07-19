@@ -33,7 +33,7 @@ v1.1 - Added new command
 v1.2 - Database and Averages!
 -----------------------------
 
-The number of !busy times as well as the times taken to return are now stored in a simple key-value replit database. Two new commands!
+The number of !busy times as well as the times taken to return are now stored in a simple key-value replit database. As of right now, the database resets every time the bot does. This is not intentional and will be removed when the bot is finished. Two new commands!
 
 !average - calculates and displays the average time it has taken for Tony to get online
 
