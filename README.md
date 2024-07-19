@@ -9,11 +9,17 @@ Current Supported Commands
 --------------------------
 
 !hoppingon - start the timer
+
 !on - stop the timer and display the time taken in seconds
+
 !busy - stop the timer if there is one; display a message about him not getting on tonight 😭
+
 !isitcominghome - humourous, responds in the language of the winning country
+
 !average - calculates and displays the average time it has taken for Tony to get online
+
 !busycount - displays the number of times the !busy command has been called
+
 !help - displays all current commands and what they do
 
 CHANGELOG
@@ -30,5 +36,7 @@ v1.2 - Database and Averages!
 The number of !busy times as well as the times taken to return are now stored in a simple key-value replit database. Two new commands!
 
 !average - calculates and displays the average time it has taken for Tony to get online
+
 !busycount - displays the number of times the !busy command has been called
+
 !help - displays all current commands and what they do
