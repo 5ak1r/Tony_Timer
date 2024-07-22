@@ -39,13 +39,13 @@ async function write(key, value, msg) {
         if (current_value.value === null || current_value.value === undefined) {
             if (key === "busy") {
                 await db.set(key, 1);
-            } else if (key === msg.channel.id) {
+            } else if (key === msg.guild.id) {
                 await db.set(key, [value]);
             }
         } else {
             if (key === "busy") {
                 await db.set(key, current_value.value + 1);
-            } else if (key === msg.channel.id) {
+            } else if (key === msg.guild.id) {
                 current_value.value.push(value);
                 await db.set(key, current_value.value);
             }
@@ -75,7 +75,7 @@ client.on("messageCreate", (msg) => {
         msg.channel.send(
             `This time it took Tony ${elapsedTime} seconds to get the flip on.`,
         );
-        write(msg.channel.id, elapsedTime, msg);
+        write(msg.guild.id, elapsedTime, msg);
     }
 
     if (msg.content === "!busy") {
@@ -85,7 +85,7 @@ client.on("messageCreate", (msg) => {
     }
 
     if (msg.content === "!average") {
-        read(msg.channel.id).then(arr => {
+        read(msg.guild.id).then(arr => {
             const sum = arr.reduce((x, y) => x + y, 0)
             const average = sum / arr.length
 

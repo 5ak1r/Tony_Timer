@@ -40,3 +40,8 @@ The number of !busy times as well as the times taken to return are now stored in
 !busycount - displays the number of times the !busy command has been called
 
 !help - displays all current commands and what they do
+
+v1.3 - Server-wide functionality
+--------------------------------
+
+You can now use Tony Timer in all channels of the server and all data is accessible regardless of the channel the command is sent in
