@@ -78,44 +78,46 @@ client.on("messageCreate", (msg) => {
         write(msg.guild.id, elapsedTime, msg);
     }
 
-    if (msg.content === "!busy") {
-        start = false;
-        msg.channel.send(`Tony is not getting on today :(`);
-        write("busy", 1, msg);
-    }
+    switch(msg.content) {
+        case"!busy":
+            start = false;
+            msg.channel.send(`Tony is not getting on today :(`);
+            write("busy", 1, msg);
+            break;
 
-    if (msg.content === "!average") {
-        read(msg.guild.id).then(arr => {
-            const sum = arr.reduce((x, y) => x + y, 0)
-            const average = sum / arr.length
-
-            msg.channel.send(`It has taken Tony an average of ${average} seconds to get the flip on.`)
-        })
-    }
-
-    if (msg.content === "!busycount") {
-        read("busy").then(value => {
-            if(value === undefined) value = 0
-            if(value === 1) {
-                msg.channel.send(`Tony has been "busy" once.`)
-                return;
-            }
-            msg.channel.send(`Tony has been "busy" ${value} times.`)
-        })
-    }
+        case "!average":
+            read(msg.guild.id).then(arr => {
+                const sum = arr.reduce((x, y) => x + y, 0)
+                const average = sum / arr.length
     
-    if (msg.content === "!isitcominghome") {
-        msg.channel.send(`¡Para nada!`);
-    }
+                msg.channel.send(`It has taken Tony an average of ${average} seconds to get the flip on.`)
+            })
+            break;
 
-    if (msg.content === "!help") {
-        const helpMessage = commands.map(cmd => `**${cmd.command}** - ${cmd.description}`).join('\n');
-        msg.channel.send(`
+        case "!busycount":
+            read("busy").then(value => {
+                if(value === undefined) value = 0
+                if(value === 1) {
+                    msg.channel.send(`Tony has been "busy" once.`)
+                    return;
+                }
+                msg.channel.send(`Tony has been "busy" ${value} times.`)
+            })
+            break;
+    
+        case "!isitcominghome":
+            msg.channel.send(`¡Para nada!`);
+            break;
+
+        case "!help":
+            const helpMessage = commands.map(cmd => `**${cmd.command}** - ${cmd.description}`).join('\n');
+            msg.channel.send(`
 Available Commands:
-
-${helpMessage}`);
-    }
     
+${helpMessage}`);
+            break;
+    
+    }
 });
 
 client.on("error", console.error);
