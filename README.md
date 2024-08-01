@@ -3,7 +3,7 @@
 
 Welcome to Tony Timer! This is a fun little Discord bot I made for my friend Toby who never gets online when he says he will.
 
-It's very easy to use with only three commands as of right now. To use these commands you simply write them into a channel on your Discord server that the bot can see.
+It's very easy to use, with very simple commands! To use these commands you simply write them into a channel on your Discord server that the bot can see.
 
 Current Supported Commands
 --------------------------
