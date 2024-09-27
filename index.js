@@ -1,6 +1,5 @@
 const { Client, IntentsBitField } = require("discord.js");
 require("dotenv").config();
-const keepAlive = require("./server");
 
 const Database = require("@replit/database");
 const db = new Database();
@@ -121,5 +120,4 @@ ${helpMessage}`);
 });
 
 client.on("error", console.error);
-keepAlive();
 client.login(process.env.TOKEN);
